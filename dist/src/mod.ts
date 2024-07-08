@@ -12,11 +12,13 @@ class Mod implements IPostDBLoadMod
     {
         // get database from server
         const databaseServer = container.resolve<DatabaseServer>("DatabaseServer");
-
-        // Get all the in-memory json found in /assets/database
         const tables: IDatabaseTables = databaseServer.getTables();
-        const mask_id = "635267ab3c89e2112001f826";
-        tables.templates.items[mask_id]._parent = "5448e5724bdc2ddf718b4568";
+
+        const MASK_ITEM = tables.templates.items["635267ab3c89e2112001f826"]; // Spooky Skull Mask
+        const CQCMMASK_ITEM = tables.templates.items["657089638db3adca1009f4ca"]; // CQCM Ballistic Mask
+        MASK_ITEM._parent = "5448e5724bdc2ddf718b4568"; // Equippable in eyewear slot
+        CQCMMASK_ITEM._parent = "5448e5724bdc2ddf718b4568"; // Equippable in eyewear slot
+
 
         
     }
